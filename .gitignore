@@ -1,0 +1,14 @@
+# Prerequisites
+node_modules/
+target/
+.angular/
+dist/
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
