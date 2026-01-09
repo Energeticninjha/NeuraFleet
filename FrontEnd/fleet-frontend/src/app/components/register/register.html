@@ -1,0 +1,187 @@
+<!--  <div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-lg p-4" style="width: 28rem; border-radius: 12px;">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold text-success">Join NeuraFleet</h2>
+      <p class="text-muted">Create your account</p>
+    </div>
+    
+  <div class="mb-3">
+      <label class="form-label">Full Name</label>
+      <input type="text" [(ngModel)]="regData.fullName" class="form-control" placeholder="Enter yor name">
+    </div> -->
+    <!-- <div *ngIf="successMessage" class="alert alert-success d-flex align-items-center shadow-sm mb-4" role="alert" style="border-radius: 8px;">
+  <i class="bi bi-check-circle-fill me-2"></i> <div>
+    {{ successMessage }}
+  </div>
+</div>
+
+<div class="mb-3">
+  <label class="form-label">Username</label>
+  <input type="text" name="username" [(ngModel)]="regData.username" 
+         class="form-control" [class.is-invalid]="submitted && !regData.username">
+  <div *ngIf="submitted && !regData.username" class="text-danger small mt-1">
+    Please enter a username.
+  </div>
+</div>
+
+<div class="mb-3">
+  <label class="form-label">Email</label>
+  <input type="email" name="email"[(ngModel)]="regData.email" class="form-control" 
+         [class.is-invalid]="submitted && !regData.email">
+  <div *ngIf="submitted && !regData.email" class="text-danger small mt-1">
+    Email is required.
+  </div>
+</div>
+
+<div class="mb-3">
+  <label class="form-label">Password</label>
+  <input type="password" name="password" [(ngModel)]="regData.password" 
+         (input)="checkStrength()" 
+         class="form-control" [class.is-invalid]="submitted && !regData.password">
+  
+  <div class="progress mt-2" style="height: 5px;" *ngIf="regData.password">
+    <div class="progress-bar" role="progressbar" 
+         [style.width.%]="passwordStrength"
+         [ngClass]="{
+           'bg-danger': passwordStrength <= 25,
+           'bg-warning': passwordStrength > 25 && passwordStrength <= 75,
+           'bg-success': passwordStrength > 75
+         }">
+    </div>
+  </div>
+  <small class="text-muted" *ngIf="regData.password">
+    Strength: <b>{{ strengthLabel }}</b>
+  </small>
+
+  <div *ngIf="submitted && !regData.password" class="text-danger small mt-1">
+    Password is required.
+  </div>
+</div>
+<div class="mb-3">
+  <label class="form-label">Confirm Password</label>
+  <input type="password" name="confirmPassword"[(ngModel)]="regData.confirmPassword" 
+         class="form-control" 
+         [class.is-invalid]="submitted && (regData.password !== regData.confirmPassword)">
+  
+  <div *ngIf="submitted && !regData.confirmPassword" class="text-danger small mt-1">
+    Confirmation is required.
+  </div>
+
+  <div *ngIf="submitted && regData.confirmPassword && regData.password !== regData.confirmPassword" 
+       class="text-danger small mt-1">
+    Passwords do not match!
+  </div>
+</div>
+
+<div class="mb-4">
+  <label class="form-label">Register As</label>
+  <select name="role" [(ngModel)]="regData.role" class="form-select">
+    <option value="CUSTOMER">Customer</option>
+    <option value="DRIVER">Driver</option>
+    <option value="FLEET_MANAGER">Fleet Manager</option>
+  </select>
+</div>
+
+    <button (click)="onRegister()" class="btn btn-success w-100 py-2 fw-bold">Create Account</button>
+    
+    <div class="text-center mt-3">
+      <small>Already have an account? <a routerLink="/login" class="text-decoration-none">Login here</a></small>
+    </div>
+  </div>
+</div>  --> 
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100 py-3">
+  
+  <div class="card shadow-lg p-4" style="width: 28rem; border-radius: 12px; overflow: hidden;">
+    
+    <div class="text-center mb-3">
+      <h2 class="fw-bold text-success">Join NeuraFleet</h2>
+      <p class="text-muted mb-0" *ngIf="!successMessage">Create your account</p>
+      
+      <div *ngIf="successMessage" class="alert alert-success mt-3 border-0 shadow-sm animate-fade-in" role="alert">
+        <div class="py-2">
+          <h5 class="alert-heading">✅ Registration Successful!</h5>
+          <p class="mb-0 small">{{ successMessage }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!successMessage">
+      
+      <div class="mb-3">
+        <label class="form-label small fw-bold">Username</label>
+        <input type="text" name="username" [(ngModel)]="regData.username" 
+               class="form-control" [class.is-invalid]="submitted && !regData.username"
+               placeholder="Enter username">
+        <div *ngIf="submitted && !regData.username" class="text-danger small mt-1">
+          Username is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label small fw-bold">Email</label>
+        <input type="email" name="email" [(ngModel)]="regData.email" 
+               class="form-control" [class.is-invalid]="submitted && !regData.email"
+               placeholder="name@example.com">
+        <div *ngIf="submitted && !regData.email" class="text-danger small mt-1">
+          Valid email is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label small fw-bold">Password</label>
+        <input type="password" name="password" [(ngModel)]="regData.password" 
+               (input)="checkStrength()" 
+               class="form-control" [class.is-invalid]="submitted && !regData.password"
+               placeholder="Create password">
+        
+        <div class="progress mt-2" style="height: 6px;" *ngIf="regData.password">
+          <div class="progress-bar transition-all" role="progressbar" 
+               [style.width.%]="passwordStrength"
+               [ngClass]="{
+                 'bg-danger': passwordStrength <= 25,
+                 'bg-warning': passwordStrength > 25 && passwordStrength <= 75,
+                 'bg-success': passwordStrength > 75
+               }">
+          </div>
+        </div>
+        <div class="d-flex justify-content-between mt-1" *ngIf="regData.password">
+          <small class="text-muted">Strength: <b>{{ strengthLabel }}</b></small>
+        </div>
+        <div *ngIf="submitted && !regData.password" class="text-danger small mt-1">
+          Password is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label small fw-bold">Confirm Password</label>
+        <input type="password" name="confirmPassword" [(ngModel)]="regData.confirmPassword" 
+               class="form-control" 
+               [class.is-invalid]="submitted && (regData.password !== regData.confirmPassword)"
+               placeholder="Repeat password">
+        <div *ngIf="submitted && regData.confirmPassword && regData.password !== regData.confirmPassword" 
+             class="text-danger small mt-1">
+          Passwords do not match!
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label small fw-bold">Register As</label>
+        <select name="role" [(ngModel)]="regData.role" class="form-select">
+          <option value="CUSTOMER">Customer</option>
+          <option value="DRIVER">Driver</option>
+          <option value="FLEET_MANAGER">Fleet Manager</option>
+        </select>
+      </div>
+
+      <button (click)="onRegister()" class="btn btn-success w-100 py-2 fw-bold shadow-sm">
+        Create Account
+      </button>
+      
+      <div class="text-center mt-3">
+        <small class="text-muted">Already have an account? 
+          <a routerLink="/login" class="text-decoration-none fw-bold text-success">Login here</a>
+        </small>
+      </div>
+    </div> </div>
+</div>
